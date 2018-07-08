@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- TOP Page -->
+    <div data-role="page" id="TopPage">
+        <header data-role="header" data-position="fixed" data-theme="c">
+            <h1>LISA System</h1>
+            <a href="#SettingPage" data-icon="gear" class="ui-btn-right">設定</a>
+        </header>
+        <!--バナー表示-->
+        <div align="center">
+          <img src="res/toppage-banner2.png"  width="320" >
+        </div>
+        <!--検索文字入力欄-->
+        <textarea id="idSearchText"></textarea>
+        <!--検索ボタン-->
+        <a data-role="button" id="SearchBtn">検索</a>
+
+    </div>
+
+    <!-- Add Memo Page -->
+    <div data-role="page" id="AddPage">
+        <header data-role="header" data-position="fixed" data-theme="c">
+            <a data-role="button" data-rel="back" data-icon="back">Back</a>
+            <h1 id="AddPageHeader">Add Memo</h1>
+        </header>
+        <section data-role="content">
+            <ul id="TopListView" data-role="listview" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-split-icon="delete">
+            </ul>
+        </section>
+    </div>
+
+    <!-- Detail Page -->
+    <div data-role="page" id="ShowPage">
+        <header data-role="header" data-position="fixed" data-theme="c">
+            <a data-role="button" data-rel="back" data-icon="back">Back</a>
+            <h6></h6>
+        </header>
+        <section data-role="content">
+            <p  id="linkLabel"></p>
+        </section>
+    </div>
+
+    <!-- SettingPage -->
+    <div data-role="page" id="SettingPage">
+        <header data-role="header" data-position="fixed" data-theme="c">
+            <a data-role="button" data-rel="back" data-icon="back">Back</a>
+            <h1></h1>
+        </header>
+
+        <!--チェックボックスで複数選択ボタンを作成-->
+        <div class="ui-field-contain">
+          <fieldset data-role="controlgroup">
+            <legend>検索サーバーURL：</legend>
+            <textarea id="txtNas">https://script.google.com/macros/s/AKfycbxY3pkdOdqIrlRRvbE860GzBVUsIqnm4ZekvCoruUa96X9moytM/exec</textarea>
+          </fieldset>
+        </div>
+
+        <!--チェックボックスで複数選択ボタンを作成-->
+        <div class="ui-field-contain">
+          <fieldset data-role="controlgroup">
+            <legend>検索対象：</legend>
+            <input id="entry_lang_gmail" name="entry_lang_gmail" type="checkbox" value="gmail" checked="true" />
+            <label for="entry_lang_gmail">GMail</label>
+            <input id="entry_lang_gdrive" name="entry_lang_gdrive" type="checkbox" value="gdrive" checked="true" />
+            <label for="entry_lang_gdrive">Google Drive</label>
+            <input id="entry_lang_odrive" name="entry_lang_odrive" type="checkbox" value="onedrive" />
+            <label for="entry_lang_odrive">OneDrive</label>
+            <input id="entry_lang_nas" name="entry_lang_nas" type="checkbox" value="nas" />
+            <label for="entry_lang_nas">NAS</label>
+          </fieldset>
+        </div>
+
+        <!--ラジオボタンで単一選択ボタンを作成-->
+        <div class="ui-field-contain">
+          <fieldset data-role="controlgroup">
+            <legend>ソート：</legend>
+            <input id="entry_sort_day" name="entry_sort" type="radio" value="new" checked="true" />
+            <label for="entry_sort_day">日付</label>
+            <input id="entry_sort_category" name="entry_sort" type="radio" value="old" />
+            <label for="entry_sort_category">カテゴリー</label>
+          </fieldset>
+        </div>
+
+    </div>
+
+
+<script src="components/loader.js"></script>
+<script src="js/memo.js"></script>
+<script src="js/app.js"></script>
+<script src="js/cssua.min.js"></script>
+</body>
+</html>
